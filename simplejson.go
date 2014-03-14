@@ -46,6 +46,15 @@ func (j *Json) Set(key string, val interface{}) {
 	m[key] = val
 }
 
+// Remove modifies `Json` map by `key`
+func (j *Json) Remove(key string) {
+	m, err := j.Map()
+	if err != nil {
+		return
+	}
+	delete(m, key)
+}
+
 // Get returns a pointer to a new `Json` object
 // for `key` in its `map` representation
 //
