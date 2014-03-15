@@ -55,6 +55,16 @@ func (j *Json) Remove(key string) {
 	delete(m, key)
 }
 
+func (j *Json) Has(key string) bool {
+	m, err := j.Map()
+	if err == nil {
+		if _, ok := m[key]; ok {
+			return true
+		}
+	}
+	return false
+}
+
 // Get returns a pointer to a new `Json` object
 // for `key` in its `map` representation
 //
