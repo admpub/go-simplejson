@@ -90,28 +90,28 @@ func (j *Json) GetString(key string) (string, error) {
 
 func (j *Json) GetBool(key string) (bool, error) {
 	if !j.Has(key) {
-		return "", errors.New(key + "not existed")
+		return false, errors.New(key + "not existed")
 	}
 	return j.Get(key).Bool()
 }
 
 func (j *Json) GetArray(key string) ([]interface{}, error) {
 	if !j.Has(key) {
-		return "", errors.New(key + "not existed")
+		return nil, errors.New(key + "not existed")
 	}
 	return j.Get(key).Array()
 }
 
 func (j *Json) GetMap(key string) (map[string]interface{}, error) {
 	if !j.Has(key) {
-		return "", errors.New(key + "not existed")
+		return nil, errors.New(key + "not existed")
 	}
 	return j.Get(key).Map()
 }
 
 func (j *Json) GetStringArray(key string) ([]string, error) {
 	if !j.Has(key) {
-		return "", errors.New(key + "not existed")
+		return nil, errors.New(key + "not existed")
 	}
 	return j.Get(key).StringArray()
 }
