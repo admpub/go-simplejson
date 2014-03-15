@@ -26,6 +26,12 @@ func NewJson(body []byte) (*Json, error) {
 	return j, nil
 }
 
+// Create new empty json
+func NewEmptyJson() *Json {
+	i, _ := json.NewJson([]byte("{}"))
+	return i
+}
+
 func (j *Json) UnmarshalJSON(p []byte) error {
 	dec := json.NewDecoder(bytes.NewBuffer(p))
 	dec.UseNumber()
