@@ -2,6 +2,7 @@ package json
 
 import (
 	"encoding/json"
+	"bytes"
 	"errors"
 )
 
