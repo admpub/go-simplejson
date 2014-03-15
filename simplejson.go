@@ -28,7 +28,7 @@ func NewJson(body []byte) (*Json, error) {
 
 // Create new empty json
 func NewEmptyJson() *Json {
-	i, _ := json.NewJson([]byte("{}"))
+	i, _ := NewJson([]byte("{}"))
 	return i
 }
 
