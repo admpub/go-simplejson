@@ -3,7 +3,6 @@ package json
 import (
 	"encoding/json"
 	"errors"
-	"log"
 )
 
 // returns the current implementation version
@@ -24,6 +23,12 @@ func NewJson(body []byte) (*Json, error) {
 		return nil, err
 	}
 	return j, nil
+}
+
+func (j *Json) UnmarshalJSON(p []byte) error {
+	dec := json.NewDecoder(bytes.NewBuffer(p))
+	dec.UseNumber()
+	return dec.Decode(&j.data)
 }
 
 // Implements the json.Marshaler interface.
